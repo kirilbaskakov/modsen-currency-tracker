@@ -1,0 +1,32 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+
+module.exports = env => ({
+  mode: env.mode,
+  entry: path.resolve(__dirname, 'src', 'index.js'),
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.[contenthash].js',
+    clean: true
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /(node_modules)/,
+        loader: 'babel-loader'
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'public', 'index.html')
+    })
+  ],
+  devServer: {
+    port: 3000,
+    open: true,
+    historyApiFallback: true,
+    hot: true
+  }
+});
