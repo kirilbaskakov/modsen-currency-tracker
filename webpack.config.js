@@ -15,6 +15,10 @@ module.exports = env => ({
         test: /\.(js|jsx)$/,
         exclude: /(node_modules)/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource'
       }
     ]
   },
@@ -28,5 +32,8 @@ module.exports = env => ({
     open: true,
     historyApiFallback: true,
     hot: true
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
   }
 });
