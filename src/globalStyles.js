@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import theme, { fsDesktop, fsMobile } from './theme';
 
 export default createGlobalStyle`
   *, *::before,
@@ -12,5 +11,11 @@ export default createGlobalStyle`
   body {
     font-family: Lexend Deca, sans-serif;
     position: relative;
+  }
+
+  @media (max-width: 768px) {
+    :root {
+      font-size: 8px;
+    }
   }
 `;

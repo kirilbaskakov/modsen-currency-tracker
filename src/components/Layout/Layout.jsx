@@ -14,7 +14,9 @@ const Layout = () => {
       <LastUpdated />
       <S.Container>
         <Suspense fallback={<h3>Loading...</h3>}>
-          <Outlet />
+          <S.Main>
+            <Outlet />
+          </S.Main>
         </Suspense>
         <Footer />
       </S.Container>

@@ -5,12 +5,7 @@ export const Hero = styled.div`
   padding: 3rem;
   display: flex;
   gap: 2.5rem;
-  background: linear-gradient(
-    259deg,
-    rgba(18, 18, 18, 1) 10%,
-    rgba(36, 121, 64, 0.25) 50%,
-    rgba(18, 18, 18, 1) 90%
-  );
+  background: ${theme.colors.heroBg};
 `;
 
 export const Text = styled.div`
@@ -22,12 +17,7 @@ export const Text = styled.div`
 `;
 
 export const Title = styled.h1`
-  background: linear-gradient(
-    90.18deg,
-    #00ce2c 0.18%,
-    #aedf23 49.3%,
-    #a3dc00 99.88%
-  );
+  background: ${theme.colors.title};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1.5em;
@@ -35,7 +25,7 @@ export const Title = styled.h1`
 `;
 
 export const Description = styled.p`
-  color: #d9d9d9;
+  color: ${theme.colors.secondary};
   font-size: ${theme.fs.medium};
   line-height: 2em;
 `;
