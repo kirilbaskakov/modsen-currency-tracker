@@ -10,12 +10,12 @@ export const LinksGroup = styled.div`
 
 export const LinksTitle = styled.h4`
   font-size: ${theme.fs.large};
-  color: #fff;
+  color: ${theme.colors.primary};
   margin-bottom: 1.5rem;
 `;
 
 export const GroupLink = styled(Link)`
   text-decoration: none;
-  color: #898989;
+  color: ${theme.colors.lightGray};
   font-size: ${theme.fs.medium};
 `;

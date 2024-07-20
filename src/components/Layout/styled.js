@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import theme from '../../theme';
 
 export const Body = styled.div`
-  background-color: #030304;
+  background-color: ${theme.colors.mainBg};
 `;
 
 export const Container = styled.div`
@@ -9,4 +10,9 @@ export const Container = styled.div`
   margin: 0 auto;
   position: relative;
   min-height: 60vh;
+  padding: 0 2rem;
+`;
+
+export const Main = styled.main`
+  padding: 2.5rem 0;
 `;

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import theme from '../../theme';
 
 export const Footer = styled.footer`
-  padding: 2rem;
+  padding: 2rem 0;
 `;
 
 export const Text = styled.div`
@@ -14,12 +14,7 @@ export const Text = styled.div`
   }
 `;
 export const Title = styled.span`
-  background: linear-gradient(
-    90.18deg,
-    #00ce2c 0.18%,
-    #aedf23 49.3%,
-    #a3dc00 99.88%
-  );
+  background: ${theme.colors.title};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: ${theme.fs.medium};
@@ -33,7 +28,7 @@ export const Logo = styled.img`
 
 export const Description = styled.p`
   font-size: ${theme.fs.medium};
-  color: #fff;
+  color: ${theme.colors.primary};
   margin-top: 1.5rem;
   line-height: 1.5em;
   display: none;
@@ -50,13 +45,13 @@ export const FooterContent = styled.div`
 
   @media (min-width: 768px) {
     flex-direction: row;
-    gap: 4pem;
+    gap: 4rem;
   }
 `;
 
 export const Rights = styled.div`
   font-size: ${theme.fs.medium};
-  color: #898989;
+  color: ${theme.colors.lightGray};
   text-align: center;
   margin-top: 3rem;
 `;
