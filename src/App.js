@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import routes from './routes';
+import CustomThemeProvider from './context/CustomThemeProvider';
 
 const router = createBrowserRouter(
   createRoutesFromChildren(
@@ -18,7 +19,11 @@ const router = createBrowserRouter(
 );
 
 const App = () => {
-  return <RouterProvider router={router}></RouterProvider>;
+  return (
+    <CustomThemeProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </CustomThemeProvider>
+  );
 };
 
 export default App;

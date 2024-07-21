@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import theme from '../../theme';
 
 export const StyledList = styled.div`
   & + & {
@@ -8,13 +7,13 @@ export const StyledList = styled.div`
 `;
 
 export const Title = styled.h3`
-  font-size: ${theme.fs.large};
+  font-size: ${props => props.theme.fs.large};
   font-weight: 300;
-  color: ${theme.colors.primary};
+  color: ${props => props.theme.colors.primary};
 `;
 
 export const Separator = styled.div`
-  background-color: ${theme.colors.darkGray};
+  background-color: ${props => props.theme.colors.darkGray};
   height: 2px;
   width: 100%;
   margin: 2rem 0;
