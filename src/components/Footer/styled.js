@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import theme from '../../theme';
 
 export const Footer = styled.footer`
   padding: 2rem 0;
@@ -14,10 +13,10 @@ export const Text = styled.div`
   }
 `;
 export const Title = styled.span`
-  background: ${theme.colors.title};
+  background: ${props => props.theme.colors.title};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: ${theme.fs.medium};
+  font-size: ${props => props.theme.fs.medium};
   font-weight: 600;
 `;
 
@@ -27,8 +26,8 @@ export const Logo = styled.img`
 `;
 
 export const Description = styled.p`
-  font-size: ${theme.fs.medium};
-  color: ${theme.colors.primary};
+  font-size: ${props => props.theme.fs.medium};
+  color: ${props => props.theme.colors.primary};
   margin-top: 1.5rem;
   line-height: 1.5em;
   display: none;
@@ -50,8 +49,8 @@ export const FooterContent = styled.div`
 `;
 
 export const Rights = styled.div`
-  font-size: ${theme.fs.medium};
-  color: ${theme.colors.lightGray};
+  font-size: ${props => props.theme.fs.medium};
+  color: ${props => props.theme.colors.lightGray};
   text-align: center;
   margin-top: 3rem;
 `;

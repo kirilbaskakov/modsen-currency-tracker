@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import theme from '../../theme';
 
 export const Body = styled.div`
-  background-color: ${theme.colors.mainBg};
+  background-color: ${props => props.theme.colors.mainBg};
 `;
 
 export const Container = styled.div`

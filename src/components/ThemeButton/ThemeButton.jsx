@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import * as S from './styled';
+import { useTheme } from 'styled-components';
 
 const ThemeButton = () => {
-  const [theme, setTheme] = useState('dark');
-
-  const onClick = () => {
-    setTheme(theme => (theme === 'dark' ? 'light' : 'dark'));
-  };
+  const { toggleTheme, themeType } = useTheme();
 
   return (
-    <S.Button onClick={onClick}>
-      <S.Circle switched={theme === 'light'} />
+    <S.Button onClick={toggleTheme}>
+      <S.Circle switched={themeType === 'light'} />
     </S.Button>
   );
 };

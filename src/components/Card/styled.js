@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import theme from '../../theme';
 
 export const Card = styled.div`
-  background-color: ${theme.colors.cardBg};
+  background-color: ${props => props.theme.colors.cardBg};
   border-radius: 5px;
-  border: 1px solid ${theme.colors.darkGray};
+  border: 1px solid ${props => props.theme.colors.darkGray};
   padding: 2rem;
   display: flex;
   gap: 1.5rem;
@@ -24,13 +23,13 @@ export const Text = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-size: ${theme.fs.large};
+  font-size: ${props => props.theme.fs.large};
 `;
 
 export const Title = styled.h4`
-  color: ${theme.colors.secondary};
+  color: ${props => props.theme.colors.secondary};
 `;
 
 export const Subtitle = styled.span`
-  color: ${theme.colors.cardSubtitle};
+  color: ${props => props.theme.colors.cardSubtitle};
 `;

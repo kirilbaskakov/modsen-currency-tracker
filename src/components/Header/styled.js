@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import theme from '../../theme';
 
 export const Header = styled.header`
-  background-color: ${theme.mainBg};
+  background-color: ${props => props.theme.mainBg};
   padding: 1.5rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -26,6 +25,6 @@ export const Nav = styled.nav`
 
 export const LinkStyled = styled(Link)`
   text-decoration: none;
-  color: ${theme.colors.primary};
-  font-size: ${theme.fs.small};
+  color: ${props => props.theme.colors.primary};
+  font-size: ${props => props.theme.fs.small};
 `;
