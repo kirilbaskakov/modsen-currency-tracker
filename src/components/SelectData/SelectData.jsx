@@ -22,13 +22,7 @@ class SelectData extends Component {
     return (
       <>
         <Button onClick={this.onClick}>Select data</Button>
-        <SelectDataModal
-          data={this.props.data}
-          setData={this.props.setData}
-          open={this.state.open}
-          onClose={this.onClose}
-          currency={this.props.currency}
-        />
+        <SelectDataModal open={this.state.open} onClose={this.onClose} />
       </>
     );
   }

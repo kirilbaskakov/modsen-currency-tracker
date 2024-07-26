@@ -2,22 +2,24 @@ import { Component } from 'react';
 import { candlestick, crosshairLabel } from '../../utiils/chartPlugins';
 import chartTooltip from '../../utiils/chartTooltip';
 import { withTheme } from 'styled-components';
+import Observable from '../../context/Observable';
 
 class CurrencyChart extends Component {
   constructor() {
     super();
-    this.state = { chart: null };
+    this.state = { chart: null, data: [] };
+    this.onDataChanged = this.onDataChanged.bind(this);
   }
 
   buildChart() {
     const config = {
       type: 'bar',
       data: {
-        labels: new Array(this.props.data.length).fill(''),
+        labels: new Array(this.state.data.length).fill(''),
         borderSkipped: true,
         datasets: [
           {
-            data: this.props.data,
+            data: this.state.data,
             backgroundColor: ctx =>
               ctx.raw && ctx.raw.o <= ctx.raw.c ? '#16C782' : '#EA3943',
             barPercentage: 0.8
@@ -33,8 +35,8 @@ class CurrencyChart extends Component {
         scales: {
           valueScale: {
             offset: true,
-            min: Math.min(...this.props.data.map(item => item.l)),
-            max: Math.max(...this.props.data.map(item => item.h)),
+            min: Math.min(...this.state.data.map(item => item.l)),
+            max: Math.max(...this.state.data.map(item => item.h)),
             border: {
               color: this.props.theme.colors.primary,
               width: 2
@@ -59,8 +61,8 @@ class CurrencyChart extends Component {
             grid: {
               color: 'rgba(160, 160, 160, 0.3)'
             },
-            min: Math.min(...this.props.data.map(item => item.l)),
-            max: Math.max(...this.props.data.map(item => item.h)),
+            min: Math.min(...this.state.data.map(item => item.l)),
+            max: Math.max(...this.state.data.map(item => item.h)),
             offset: true,
             position: 'right',
             ticks: {
@@ -106,7 +108,7 @@ class CurrencyChart extends Component {
           tooltip: chartTooltip
         }
       },
-      plugins: this.props.data.length
+      plugins: this.state.data.length
         ? [candlestick(this.props.theme), crosshairLabel(this.props.theme)]
         : []
     };
@@ -121,8 +123,18 @@ class CurrencyChart extends Component {
       this.chart.destroy();
     }
   }
+
+  onDataChanged(data) {
+    if (data.length === 30) {
+      this.setState({ data });
+    } else {
+      this.setState({ data: [] });
+    }
+  }
+
   componentDidMount() {
     this.buildChart();
+    Observable.subscribe(this.onDataChanged);
   }
 
   componentDidUpdate() {
@@ -132,6 +144,7 @@ class CurrencyChart extends Component {
 
   componentWillUnmount() {
     this.clearChart();
+    Observable.unsubscribe(this.onDataChanged);
   }
 
   render() {

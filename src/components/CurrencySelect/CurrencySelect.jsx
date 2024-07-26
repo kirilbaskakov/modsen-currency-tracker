@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Option, Select } from './styled';
 import { currencyInfo } from '../../constants/currencyCards';
+import { DataContext } from '../../context/DataContext';
 
-const CurrencySelect = ({ onChange }) => {
-  const values = Object.keys(currencyInfo);
-  return (
-    <Select onChange={onChange}>
-      {values.map(value => (
-        <Option key={value}>{value}</Option>
-      ))}
-    </Select>
-  );
-};
+class CurrencySelect extends Component {
+  static contextType = DataContext;
+
+  constructor() {
+    super();
+    this.values = Object.keys(currencyInfo);
+  }
+
+  render() {
+    return (
+      <Select onChange={this.props.onChange}>
+        {this.values.map(value => (
+          <Option key={value}>{value}</Option>
+        ))}
+      </Select>
+    );
+  }
+}
 
 export default CurrencySelect;

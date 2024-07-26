@@ -1,4 +1,4 @@
-const getChartData = (amount = 120, startDate = new Date()) => {
+const getChartData = (amount, startDate) => {
   const data = new Array(amount).fill({}).reduce((data, _, index) => {
     let date = new Date(startDate);
     date.setDate(startDate.getDate() + index);
