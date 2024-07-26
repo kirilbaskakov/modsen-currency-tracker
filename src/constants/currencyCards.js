@@ -10,6 +10,16 @@ import PesoArgentino from '../assets/Peso Argentino Icon.svg';
 import Won from '../assets/Won Icon.svg';
 import Yen from '../assets/Yen Icon.svg';
 
+export const currencies = [
+  'Commercial Dollar',
+  'Yen',
+  'Won',
+  'Euro',
+  'Bitcoin',
+  'Argentinian Peso',
+  'Canadian Dollar'
+];
+
 export default [
   {
     title: 'Stocks',

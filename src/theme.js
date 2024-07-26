@@ -19,7 +19,8 @@ export const darkTheme = {
     lightGray: '#898989',
     primary: '#fff',
     secondary: '#d9d9d9',
-    cardSubtitle: '#a7b2c3'
+    cardSubtitle: '#a7b2c3',
+    red: '#EA3943'
   },
 
   fs: {

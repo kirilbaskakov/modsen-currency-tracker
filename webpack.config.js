@@ -13,12 +13,16 @@ module.exports = env => ({
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /(node_modules)/,
+        exclude: /node_modules/,
         loader: 'babel-loader'
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource'
+      },
+      {
+        test: /.css$/i,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
@@ -28,7 +32,7 @@ module.exports = env => ({
     })
   ],
   devServer: {
-    port: 3000,
+    port: 3001,
     open: true,
     historyApiFallback: true,
     hot: true
