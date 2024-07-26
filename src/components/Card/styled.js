@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
 export const Card = styled.div`
-  background-color: ${props => props.theme.colors.cardBg};
+  background-color: ${props =>
+    props.outlined ? props.theme.colors.cardBg : 'transparent'};
   border-radius: 5px;
-  border: 1px solid ${props => props.theme.colors.darkGray};
-  padding: 2rem;
+  border: ${props =>
+    props.outlined ? `1px solid ${props.theme.colors.darkGray}` : 'none'};
+  padding: ${props => (props.outlined ? '2rem' : '2rem 0')};
   display: flex;
   gap: 1.5rem;
 `;

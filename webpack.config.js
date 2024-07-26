@@ -31,6 +31,7 @@ module.exports = env => ({
       template: path.resolve(__dirname, 'public', 'index.html')
     })
   ],
+  devtool: 'inline-source-map',
   devServer: {
     port: 3001,
     open: true,
