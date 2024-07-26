@@ -45,6 +45,16 @@ export const currencyInfo = {
   }
 };
 
+export const currencies = [
+  'Commercial Dollar',
+  'Yen',
+  'Won',
+  'Euro',
+  'Bitcoin',
+  'Argentinian Peso',
+  'Canadian Dollar'
+];
+
 export default [
   {
     title: 'Stocks',
