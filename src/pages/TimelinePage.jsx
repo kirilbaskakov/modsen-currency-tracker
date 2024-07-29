@@ -27,6 +27,7 @@ class TimelinePage extends Component {
           subtitle={currencyInfo[this.state.currency].code}
           icon={currencyInfo[this.state.currency].icon}
           outlined={false}
+          exchangable={false}
         />
         <DataProvider currency={this.state.currency}>
           <SelectData />

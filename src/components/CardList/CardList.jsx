@@ -8,8 +8,13 @@ const CardList = ({ title, cards }) => {
       <Title>{title}</Title>
       <Separator />
       <CardsContainer>
-        {cards.map(({ icon, title, subtitle }) => (
-          <Card icon={icon} title={title} subtitle={subtitle} />
+        {cards.map(({ icon, title, subtitle, exchangable }) => (
+          <Card
+            icon={icon}
+            title={title}
+            subtitle={subtitle}
+            exchangable={exchangable}
+          />
         ))}
       </CardsContainer>
     </StyledList>
