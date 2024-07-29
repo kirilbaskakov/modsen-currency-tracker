@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { Option, Select } from './styled';
 import { currencyInfo } from '@/constants/currencyCards';
-import { DataContext } from '@/context/DataContext';
 
 class CurrencySelect extends Component {
-  static contextType = DataContext;
-
   constructor() {
     super();
     this.values = Object.keys(currencyInfo);
