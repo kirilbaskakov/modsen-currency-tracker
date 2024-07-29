@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Hero = styled.div`
+export const HeroStyled = styled.div`
   padding: 3rem;
   display: flex;
   gap: 2.5rem;
@@ -29,7 +29,7 @@ export const Description = styled.p`
   line-height: 2em;
 `;
 
-export const Logo = styled.img`
+export const LogoStyled = styled.img`
   display: none;
   @media (min-width: 768px) {
     display: block;

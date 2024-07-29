@@ -7,9 +7,9 @@ import {
   Title
 } from './styled';
 import Modal from '../Modal/Modal';
-import { Component, Fragment } from 'react';
-import toDateInput from '../../utiils/toDateInput';
-import { DataContext } from '../../context/DataContext';
+import { Component } from 'react';
+import toDateInput from '@/utils/toDateInput';
+import { DataContext } from '@/context/DataContext';
 import DataTable from '../DataTable/DataTable';
 
 class SelectDataModal extends Component {

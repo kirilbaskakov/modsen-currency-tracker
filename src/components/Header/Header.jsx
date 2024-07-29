@@ -1,21 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Logo from '../../assets/logo-small.svg';
+import Logo from '@/assets/logo-small.svg';
 import ThemeButton from '../ThemeButton/ThemeButton';
-import * as S from './styled';
+import { HeaderStyled, LinkStyled, LogoStyled, Nav } from './styled';
 
 const Header = () => {
   return (
-    <S.Header>
-      <img src={Logo} alt="Logo" />
-      <S.Nav>
-        <S.LinkStyled to="/">Home</S.LinkStyled>
-        <S.LinkStyled to="/timeline">Timeline</S.LinkStyled>
-        <S.LinkStyled to="/banks">Bank map</S.LinkStyled>
-        <S.LinkStyled>Contacts</S.LinkStyled>
-      </S.Nav>
+    <HeaderStyled>
+      <LogoStyled src={Logo} alt="Logo" />
+      <Nav>
+        <LinkStyled to="/">Home</LinkStyled>
+        <LinkStyled to="/timeline">Timeline</LinkStyled>
+        <LinkStyled to="/banks">Bank map</LinkStyled>
+        <LinkStyled>Contacts</LinkStyled>
+      </Nav>
       <ThemeButton />
-    </S.Header>
+    </HeaderStyled>
   );
 };
 

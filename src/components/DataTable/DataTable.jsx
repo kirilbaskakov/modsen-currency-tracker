@@ -9,7 +9,7 @@ import {
   Label,
   NumberInput
 } from './styled';
-import { DataContext } from '../../context/DataContext';
+import { DataContext } from '@/context/DataContext';
 
 class DataTable extends Component {
   static contextType = DataContext;

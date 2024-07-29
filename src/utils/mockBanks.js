@@ -1,6 +1,7 @@
-import { currencies } from '../constants/currencyCards';
+import { currencyInfo } from '../constants/currencyCards';
 
 const mockBanks = features => {
+  const currencies = Object.keys(currencyInfo);
   const selectRandomCurrencies = () => {
     const amount = Math.ceil(Math.random() * 3 + 1);
     const result = new Set();

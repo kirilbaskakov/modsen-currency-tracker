@@ -1,8 +1,8 @@
 import { Component } from 'react';
-import { candlestick, crosshairLabel } from '../../utiils/chartPlugins';
-import chartTooltip from '../../utiils/chartTooltip';
+import { candlestick, crosshairLabel } from '@/utils/chartPlugins';
+import chartTooltip from '@/utils/chartTooltip';
 import { withTheme } from 'styled-components';
-import Observable from '../../context/Observable';
+import Observable from '@/context/Observable';
 
 class CurrencyChart extends Component {
   constructor() {
@@ -124,7 +124,7 @@ class CurrencyChart extends Component {
     }
   }
 
-  onDataChanged(data) {
+  onDataChanged({ data }) {
     if (data.length === 30) {
       this.setState({ data });
     } else {

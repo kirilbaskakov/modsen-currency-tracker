@@ -8,8 +8,8 @@ import {
   Variant,
   VariantsContainer
 } from './styled';
-import SearchIcon from '../../assets/search-normal.svg';
-import getRelevant from '../../utils/getRelevant';
+import SearchIcon from '@/assets/search-normal.svg';
+import getRelevant from '@/utils/getRelevant';
 
 class Search extends Component {
   constructor() {

@@ -1,22 +1,22 @@
 import { createContext, useEffect, useState } from 'react';
-import genChartData from '../utiils/genChartData';
-import addDays from '../utiils/addDays';
+import genChartData from '@/utils/genChartData';
+import addDays from '@/utils/addDays';
 import Observable from './Observable';
 
 export const DataContext = createContext(null);
 
 export const DataProvider = ({ currency, children }) => {
-  const getDefaultValue = () => {
-    const defaultValue = [
-      {
-        x: new Date(),
-        o: 0,
-        c: 0,
-        l: 0,
-        h: 0
-      }
-    ];
+  const defaultValue = [
+    {
+      x: new Date(),
+      o: 0,
+      c: 0,
+      l: 0,
+      h: 0
+    }
+  ];
 
+  const getDefaultValue = () => {
     try {
       const data = JSON.parse(localStorage.getItem(currency)).map(
         ({ x, ...other }) => ({ x: new Date(x), ...other })
@@ -31,8 +31,10 @@ export const DataProvider = ({ currency, children }) => {
 
   useEffect(() => {
     const data = getDefaultValue();
-    setData(data);
-    Observable.notify(data);
+    if (data != defaultValue) {
+      setData(data);
+    }
+    Observable.notify({ data, isDefault: data == defaultValue });
   }, [currency]);
 
   const createItem = lastDate => {
@@ -108,7 +110,7 @@ export const DataProvider = ({ currency, children }) => {
 
   const save = () => {
     localStorage.setItem(currency, JSON.stringify(data));
-    Observable.notify(data);
+    Observable.notify({ data, isDefault: false });
   };
 
   const value = {

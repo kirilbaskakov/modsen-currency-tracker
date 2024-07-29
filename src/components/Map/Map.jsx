@@ -2,7 +2,7 @@ import { Component } from 'react';
 import mapboxgl from 'mapbox-gl';
 import { Container } from './styled';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import mockBanks from '../../utils/mockBanks';
+import mockBanks from '@/utils/mockBanks';
 
 class Map extends Component {
   constructor() {

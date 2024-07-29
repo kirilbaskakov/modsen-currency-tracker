@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Card = styled.div`
+export const CardContainer = styled.div`
   background-color: ${props =>
     props.outlined ? props.theme.colors.cardBg : 'transparent'};
   border-radius: 5px;

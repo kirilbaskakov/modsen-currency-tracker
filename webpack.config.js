@@ -31,7 +31,6 @@ module.exports = env => ({
       template: path.resolve(__dirname, 'public', 'index.html')
     })
   ],
-  devtool: 'inline-source-map',
   devServer: {
     port: 3001,
     open: true,
@@ -39,6 +38,9 @@ module.exports = env => ({
     hot: true
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    }
   }
 });

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const PopupStyled = styled.div`
   position: fixed;
   text-wrap: nowrap;
-  top: 4.75rem;
+  top: 5.75rem;
   left: 50%;
   transform: translateX(-50%);
   padding: 0.5rem 1rem;

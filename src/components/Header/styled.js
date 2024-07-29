@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const Header = styled.header`
-  background-color: ${props => props.theme.mainBg};
+export const HeaderStyled = styled.header`
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: ${props => props.theme.colors.mainBg};
   padding: 1.5rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -12,6 +15,8 @@ export const Header = styled.header`
     padding: 1.5rem 4rem;
   }
 `;
+
+export const LogoStyled = styled.img``;
 
 export const Nav = styled.nav`
   display: flex;

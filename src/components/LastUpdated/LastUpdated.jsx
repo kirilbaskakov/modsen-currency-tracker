@@ -1,13 +1,13 @@
 import React from 'react';
-import * as S from './styled';
+import { Container, Indicator, Text } from './styled';
 
 const LastUpdated = () => {
   const updatedAt = '11:59pm';
   return (
-    <S.LastUpdated>
-      <S.Indicator />
-      <S.Text>Last updated at {updatedAt}</S.Text>
-    </S.LastUpdated>
+    <Container>
+      <Indicator />
+      <Text>Last updated at {updatedAt}</Text>
+    </Container>
   );
 };
 

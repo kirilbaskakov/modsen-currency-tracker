@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Footer = styled.footer`
+export const FooterStyled = styled.footer`
   padding: 2rem 0;
 `;
 
@@ -20,7 +20,7 @@ export const Title = styled.span`
   font-weight: 600;
 `;
 
-export const Logo = styled.img`
+export const LogoStyled = styled.img`
   vertical-align: middle;
   margin-right: 0.75rem;
 `;

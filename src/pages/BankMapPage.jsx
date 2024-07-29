@@ -1,21 +1,30 @@
-import React, { useState } from 'react';
+import React, { Component, useState } from 'react';
 import Map from '../components/Map/Map';
 import Search from '../components/Search/Search';
-import { currencies } from '../constants/currencyCards';
+import { currencyInfo } from '../constants/currencyCards';
 
-const BankMapPage = () => {
-  const [currency, setCurrency] = useState('');
+class BankMapPage extends Component {
+  constructor() {
+    super();
+    this.state = { currency: '' };
+    this.onVariantChange = this.onVariantChange.bind(this);
+  }
 
-  const onVariantChange = variant => {
-    setCurrency(variant);
-  };
+  onVariantChange(variant) {
+    this.setState({ currency: variant });
+  }
 
-  return (
-    <>
-      <Search values={currencies} onVariantChange={onVariantChange} />
-      <Map currency={currency} />
-    </>
-  );
-};
+  render() {
+    return (
+      <>
+        <Search
+          values={Object.keys(currencyInfo)}
+          onVariantChange={this.onVariantChange}
+        />
+        <Map currency={this.state.currency} />
+      </>
+    );
+  }
+}
 
 export default BankMapPage;

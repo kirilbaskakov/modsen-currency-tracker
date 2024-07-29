@@ -1,7 +1,15 @@
 import React from 'react';
-import Logo from '../../assets/logo-small.svg';
-import * as S from './styled';
+import Logo from '@/assets/logo-small.svg';
 import LinksGroup from '../LinksGroup/LinksGroup';
+import {
+  Description,
+  FooterContent,
+  FooterStyled,
+  LogoStyled,
+  Rights,
+  Text,
+  Title
+} from './styled';
 
 const Footer = () => {
   const links = [
@@ -10,25 +18,25 @@ const Footer = () => {
     { title: 'Community', links: ['Ideas', 'Streams'] }
   ];
   return (
-    <S.Footer>
-      <S.FooterContent>
-        <S.Text>
-          <S.Title>
-            <S.Logo src={Logo} /> Modsen Currency Tracker
-          </S.Title>
-          <S.Description>
+    <FooterStyled>
+      <FooterContent>
+        <Text>
+          <Title>
+            <LogoStyled src={Logo} /> Modsen Currency Tracker
+          </Title>
+          <Description>
             Since then, the company has grown organically to. Starsup is the
             world's largest trading platform, with $12 billion worth of currency
             trading and 500,000 tickets sold daily to tens of thousands of
             traders worldwide.
-          </S.Description>
-        </S.Text>
+          </Description>
+        </Text>
         {links.map(({ title, links }) => (
           <LinksGroup title={title} links={links} key={title} />
         ))}
-      </S.FooterContent>
-      <S.Rights>Startsup © 2023-2024, All Rights Reserved</S.Rights>
-    </S.Footer>
+      </FooterContent>
+      <Rights>Startsup © 2023-2024, All Rights Reserved</Rights>
+    </FooterStyled>
   );
 };
 

@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { PopupStyled } from './styled';
 import { createPortal } from 'react-dom';
-import Observable from '../../context/Observable';
+import Observable from '@/context/Observable';
 
 class Popup extends Component {
   constructor() {
@@ -10,13 +10,22 @@ class Popup extends Component {
     this.onDataChange = this.onDataChange.bind(this);
   }
 
-  onDataChange(data) {
+  onDataChange({ data, isDefault }) {
+    if (isDefault) {
+      return;
+    }
     if (data.length === 30) {
       this.setState({ isVisible: true, isSuccess: true });
     } else {
       this.setState({ isVisible: true, isSuccess: false });
     }
-    setTimeout(() => this.setState({ isVisible: false }), 2000);
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+    }
+    this.timeoutId = setTimeout(
+      () => this.setState({ isVisible: false }),
+      2000
+    );
   }
 
   componentDidMount() {
