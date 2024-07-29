@@ -3,10 +3,17 @@ import { PropTypes } from 'prop-types';
 import { CardContainer, Icon, Subtitle, Text, Title } from './styled';
 import ExchangeModal from '../ExchangeModal/ExchangeModal';
 
-const Card = ({ icon, title, subtitle, outlined = true }) => {
+const Card = ({
+  icon,
+  title,
+  subtitle,
+  exchangable = false,
+  outlined = true
+}) => {
+  console.log(exchangable);
   const [isOpen, setIsOpen] = useState(false);
 
-  const onClick = () => setIsOpen(true);
+  const onClick = () => exchangable && setIsOpen(true);
 
   const onClose = () => setIsOpen(false);
 

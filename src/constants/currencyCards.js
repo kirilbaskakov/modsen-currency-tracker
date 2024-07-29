@@ -52,11 +52,13 @@ export default [
       {
         icon: BovespaIcon,
         title: 'Bovespa Index',
+        exchangable: false,
         subtitle: '0.15%'
       },
       {
         icon: IFIXIcon,
         title: 'IFIX',
+        exchangable: false,
         subtitle: '0.15%'
       }
     ]
@@ -64,23 +66,45 @@ export default [
   {
     title: 'Quotes',
     cards: [
-      { icon: DollarIcon, title: 'Commercial Dollar', subtitle: 'R$ 5,13' },
-      { icon: PesoArgentinoIcon, title: 'Argentine Peso', subtitle: 'R$ 0,02' },
+      {
+        icon: DollarIcon,
+        title: 'Commercial Dollar',
+        subtitle: 'R$ 5,13',
+        exchangable: true
+      },
+      {
+        icon: PesoArgentinoIcon,
+        title: 'Argentine Peso',
+        subtitle: 'R$ 0,02',
+        exchangable: true
+      },
       {
         icon: CanadianDollarIcon,
         title: 'Canadian Dollar',
-        subtitle: 'R$ 3,78'
+        subtitle: 'R$ 3,78',
+        exchangable: true
       },
-      { icon: YenIcon, title: 'Yen', subtitle: 'R$ 0,03' },
+      { icon: YenIcon, title: 'Yen', subtitle: 'R$ 0,03', exchangable: true },
       {
         icon: AustralianDollarIcon,
         title: 'Australian Dollar',
-        subtitle: 'R$ 3,48'
+        subtitle: 'R$ 3,48',
+        exchangable: true
       },
-      { icon: WonIcon, title: 'Won', subtitle: 'R$ 0,74' },
-      { icon: EuroIcon, title: 'Euro', subtitle: 'R$ 5,43' },
-      { icon: BitcoinIcon, title: 'Bitcoin', subtitle: 'R$ 122.148,71' },
-      { icon: LibraIcon, title: 'Libra', subtitle: 'R$ 6,16' }
+      { icon: WonIcon, title: 'Won', subtitle: 'R$ 0,74', exchangable: true },
+      { icon: EuroIcon, title: 'Euro', subtitle: 'R$ 5,43', exchangable: true },
+      {
+        icon: BitcoinIcon,
+        title: 'Bitcoin',
+        subtitle: 'R$ 122.148,71',
+        exchangable: true
+      },
+      {
+        icon: LibraIcon,
+        title: 'Libra',
+        subtitle: 'R$ 6,16',
+        exchangable: true
+      }
     ]
   }
 ];
