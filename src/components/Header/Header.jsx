@@ -11,7 +11,7 @@ const Header = () => {
         <LinkStyled to="/">Home</LinkStyled>
         <LinkStyled to="/timeline">Timeline</LinkStyled>
         <LinkStyled to="/banks">Bank map</LinkStyled>
-        <LinkStyled>Contacts</LinkStyled>
+        <LinkStyled to="/contacts">Contact us</LinkStyled>
       </Nav>
       <ThemeButton />
     </HeaderStyled>
