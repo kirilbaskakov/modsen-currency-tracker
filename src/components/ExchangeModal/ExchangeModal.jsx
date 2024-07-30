@@ -46,7 +46,7 @@ const ExchangeModal = ({ currency, open, onClose }) => {
   const rate = rates ? rates[currencyInfo[resultCurrency].code].value : 0;
 
   return (
-    <Modal open={open} onClose={onClose}>
+    <Modal open={open} onClose={onClose} data-testid="exchange-modal">
       <Title>Exchange</Title>
       <Container>
         <Description>

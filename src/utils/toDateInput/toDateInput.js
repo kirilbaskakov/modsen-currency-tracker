@@ -1,5 +1,5 @@
 const toDateInput = date => {
-  const res = date.toLocaleDateString('en-gb').split('/');
+  const res = date.toLocaleDateString('en-GB').split('/');
   res.reverse();
   return res.join('-');
 };

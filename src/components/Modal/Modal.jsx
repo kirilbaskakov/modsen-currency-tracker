@@ -13,7 +13,7 @@ class Modal extends Component {
     }
     return (
       <>
-        <ModalStyled>{this.props.children}</ModalStyled>
+        <ModalStyled {...this.props}>{this.props.children}</ModalStyled>
         <Overlay onClick={this.props.onClose} />
       </>
     );
