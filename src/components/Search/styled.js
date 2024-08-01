@@ -50,7 +50,14 @@ export const SearchInput = styled.input`
 
 export const Icon = styled.img`
   position: absolute;
+  width: 18px;
+  height: 18px;
   right: 10px;
+
+  @media (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
 `;
 
 export const Variant = styled.div`

@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 export const PopupStyled = styled.div`
   position: fixed;
+  z-index: 2;
   text-wrap: nowrap;
-  top: 5.75rem;
+  top: 5%;
   left: 50%;
   transform: translateX(-50%);
   padding: 0.5rem 1rem;

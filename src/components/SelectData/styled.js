@@ -8,4 +8,8 @@ export const Button = styled.button`
   background-color: transparent;
   border: 1px solid ${props => props.theme.colors.primary};
   border-radius: 5px;
+
+  &:hover {
+    background-color: ${props => props.theme.colors.lightGray};
+  }
 `;

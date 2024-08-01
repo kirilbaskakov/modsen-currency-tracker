@@ -17,6 +17,7 @@ export const ModalStyled = styled.div`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  min-width: 350px;
   background-color: ${props => props.theme.colors.cardBg};
   z-index: 100;
 `;

@@ -10,10 +10,10 @@ import Loader from '../Loader/Loader';
 const Layout = () => {
   return (
     <Body>
-      <Header />
-      <Hero />
-      <LastUpdated />
       <Container>
+        <Header />
+        <Hero />
+        <LastUpdated />
         <Main>
           <Suspense fallback={<Loader />}>
             <Outlet />

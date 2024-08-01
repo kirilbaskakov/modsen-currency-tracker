@@ -10,7 +10,6 @@ const Card = ({
   exchangable = false,
   outlined = true
 }) => {
-  console.log(exchangable);
   const [isOpen, setIsOpen] = useState(false);
 
   const onClick = () => exchangable && setIsOpen(true);
@@ -19,7 +18,11 @@ const Card = ({
 
   return (
     <>
-      <CardContainer outlined={outlined} onClick={onClick}>
+      <CardContainer
+        outlined={outlined}
+        onClick={onClick}
+        isHoverable={exchangable}
+      >
         <Icon src={icon} alt={title} />
         <Text>
           <Title>{title}</Title>

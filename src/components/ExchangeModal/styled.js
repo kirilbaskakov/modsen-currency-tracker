@@ -61,7 +61,8 @@ export const ReadonlySelect = styled.div`
   font-size: ${props => props.theme.fs.large};
   font-weight: 500;
   padding: 1rem 0;
-  min-width: 250px;
+  padding-right: 1rem;
+  text-wrap: nowrap;
 `;
 export const Button = styled.button`
   cursor: pointer;

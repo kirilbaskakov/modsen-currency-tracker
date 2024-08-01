@@ -23,6 +23,13 @@ export const Title = styled.span`
 export const LogoStyled = styled.img`
   vertical-align: middle;
   margin-right: 0.75rem;
+  width: 30px;
+  height: 30px;
+
+  @media (min-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
 `;
 
 export const Description = styled.p`

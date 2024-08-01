@@ -8,7 +8,7 @@ export const Select = styled.select`
   background-color: transparent;
   border: none;
   padding: 1rem 0;
-  min-width: 250px;
+  padding-right: 1rem;
 
   &:focus {
     outline: none;

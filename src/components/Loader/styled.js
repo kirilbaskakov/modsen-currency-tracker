@@ -19,11 +19,11 @@ const loader2 = keyframes`
 export const LoaderStyled = styled.div`
   position: absolute;
   top: 5%;
-  left: 50%;
+  left: calc(50% - 25px);
   width: 50px;
   aspect-ratio: 1;
   border-radius: 50%;
-  border: 8px solid #514b82;
+  border: 8px solid ${props => props.theme.colors.green};
   animation:
     ${loader1} 0.8s infinite linear alternate,
     ${loader2} 1.6s infinite linear;

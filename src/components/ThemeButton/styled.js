@@ -4,8 +4,8 @@ export const Button = styled.div`
   cursor: pointer;
   border-radius: 15px;
   border: 2px solid ${props => props.theme.colors.primary};
-  height: 18px;
-  width: 32px;
+  height: 24px;
+  width: 40px;
   position: relative;
 
   @media (min-width: 768px) {
@@ -17,8 +17,8 @@ export const Button = styled.div`
 export const Circle = styled.div`
   border: 2px solid ${props => props.theme.colors.primary};
   border-radius: 50%;
-  width: 15px;
-  height: 15px;
+  width: 21px;
+  height: 21px;
   position: absolute;
   ${props => (props.switched ? 'right' : 'left')}: 0;
 

@@ -26,6 +26,13 @@ export const GridButtons = styled.div`
   display: flex;
   gap: 1rem;
 `;
+
+export const Error = styled.div`
+  color: ${props => props.theme.colors.red};
+  font-size: ${props => props.theme.fs.small};
+  opacity: ${props => (props.isVisible ? 1 : 0)};
+`;
+
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -37,6 +44,8 @@ export const NumberInput = styled.input`
   min-width: 35px;
   padding: 0.25rem;
   font-size: inherit;
+  outline: ${props =>
+    props.isError ? `2px solid ${props.theme.colors.red}` : 'none'};
 `;
 
 export const Button = styled.button`

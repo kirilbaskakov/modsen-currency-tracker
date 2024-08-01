@@ -3,12 +3,28 @@ import { candlestick, crosshairLabel } from '@/utils/chartPlugins';
 import chartTooltip from '@/utils/chartTooltip';
 import { withTheme } from 'styled-components';
 import Observable from '@/context/Observable';
+import { Canvas } from './styled';
+import getDataFromStorage from '@/utils/getDataFromStorage';
 
 class CurrencyChart extends Component {
   constructor() {
     super();
-    this.state = { chart: null, data: [] };
+    this.chart = null;
+    this.state = { data: [] };
     this.onDataChanged = this.onDataChanged.bind(this);
+  }
+
+  getData() {
+    const data = getDataFromStorage(this.props.currency, {
+      x: new Date(),
+      o: 0,
+      c: 0,
+      l: 0,
+      h: 0
+    });
+    this.setState({
+      data: data.length == 30 ? data : []
+    });
   }
 
   buildChart() {
@@ -133,13 +149,18 @@ class CurrencyChart extends Component {
   }
 
   componentDidMount() {
-    this.buildChart();
+    this.getData();
     Observable.subscribe(this.onDataChanged);
   }
 
-  componentDidUpdate() {
-    this.clearChart();
-    this.buildChart();
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.currency != this.props.currency) {
+      this.getData();
+    }
+    if (!Object.is(this.state.data, prevState.data)) {
+      this.clearChart();
+      this.buildChart();
+    }
   }
 
   componentWillUnmount() {
@@ -148,7 +169,7 @@ class CurrencyChart extends Component {
   }
 
   render() {
-    return <canvas id="currencyChart"></canvas>;
+    return <Canvas id="currencyChart" />;
   }
 }
 

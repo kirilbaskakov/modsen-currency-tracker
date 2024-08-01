@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
 export const HeroStyled = styled.div`
-  padding: 3rem;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 3rem calc(50vw - 50%);
   display: flex;
+  justify-content: center;
   gap: 2.5rem;
   background: ${props => props.theme.colors.heroBg};
 `;

@@ -10,8 +10,8 @@ const getChartData = (amount, startDate) => {
     };
     item.o = data.length ? data.at(-1).c : +(Math.random() + offset).toFixed(2);
     item.c = +(item.o + Math.random() - 0.5).toFixed(2);
-    item.l = +(item.o - Math.random() * 0.3).toFixed(2);
-    item.h = +(item.c + Math.random() * 0.3).toFixed(2);
+    item.l = +(Math.min(item.o, item.c) - Math.random() * 0.3).toFixed(2);
+    item.h = +(Math.max(item.o, item.c) + Math.random() * 0.3).toFixed(2);
     return [
       ...data,
       {

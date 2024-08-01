@@ -4,7 +4,6 @@ import Card from '../components/Card/Card';
 import CurrencyChart from '../components/CurrencyChart/CurrencyChart';
 import SelectData from '../components/SelectData/SelectData';
 import { currencyInfo } from '../constants/currencyCards';
-import { DataProvider } from '../context/DataContext';
 import Popup from '../components/Popup/Popup';
 
 class TimelinePage extends Component {
@@ -29,10 +28,8 @@ class TimelinePage extends Component {
           outlined={false}
           exchangable={false}
         />
-        <DataProvider currency={this.state.currency}>
-          <SelectData />
-        </DataProvider>
-        <CurrencyChart />
+        <SelectData currency={this.state.currency} />
+        <CurrencyChart currency={this.state.currency} />
         <Popup />
       </>
     );
