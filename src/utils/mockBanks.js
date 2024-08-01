@@ -1,12 +1,14 @@
-import { currencyInfo } from '../constants/currencyCards';
+import { currencies } from '@/constants/currenciesData';
 
 const mockBanks = features => {
-  const currencies = Object.keys(currencyInfo);
+  const currenciesNames = Object.keys(currencies);
   const selectRandomCurrencies = () => {
     const amount = Math.ceil(Math.random() * 3 + 1);
     const result = new Set();
     while (result.size < amount) {
-      result.add(currencies[Math.floor(Math.random() * currencies.length)]);
+      result.add(
+        currenciesNames[Math.floor(Math.random() * currencies.length)]
+      );
     }
     return Array.from(result);
   };

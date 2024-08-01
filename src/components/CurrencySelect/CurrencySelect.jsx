@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Option, Select } from './styled';
-import { currencyInfo } from '@/constants/currencyCards';
+import { currencies } from '@/constants/currenciesData';
 
 class CurrencySelect extends Component {
   constructor() {
     super();
-    this.values = Object.keys(currencyInfo);
+    this.values = Object.keys(currencies);
   }
 
   render() {

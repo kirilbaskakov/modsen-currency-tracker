@@ -1,7 +1,7 @@
-import React, { Component, useState } from 'react';
-import Map from '../components/Map/Map';
-import Search from '../components/Search/Search';
-import { currencyInfo } from '../constants/currencyCards';
+import React, { Component } from 'react';
+import Map from '@/components/Map/Map';
+import Search from '@/components/Search/Search';
+import { currencies } from '@/constants/currenciesData';
 
 class BankMapPage extends Component {
   constructor() {
@@ -18,7 +18,7 @@ class BankMapPage extends Component {
     return (
       <>
         <Search
-          values={Object.keys(currencyInfo)}
+          values={Object.keys(currencies)}
           onVariantChange={this.onVariantChange}
         />
         <Map currency={this.state.currency} />
