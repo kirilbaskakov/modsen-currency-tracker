@@ -7,9 +7,10 @@ const mockBanks = features => {
     const result = new Set();
     while (result.size < amount) {
       result.add(
-        currenciesNames[Math.floor(Math.random() * currencies.length)]
+        currenciesNames[Math.floor(Math.random() * currenciesNames.length)]
       );
     }
+    console.log(result);
     return Array.from(result);
   };
 

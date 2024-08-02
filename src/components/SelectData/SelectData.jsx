@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import SelectDataModal from '../SelectDataModal/SelectDataModal';
 import { Button } from './styled';
+import PropTypes from 'prop-types';
 
 class SelectData extends Component {
   constructor() {
@@ -34,4 +35,7 @@ class SelectData extends Component {
   }
 }
 
+SelectData.propTypes = {
+  currency: PropTypes.string
+};
 export default SelectData;

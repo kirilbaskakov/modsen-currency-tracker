@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Option, Select } from './styled';
 import { currencies } from '@/constants/currenciesData';
+import PropTypes from 'prop-types';
 
 class CurrencySelect extends Component {
   constructor() {
@@ -19,4 +20,7 @@ class CurrencySelect extends Component {
   }
 }
 
+CurrencySelect.propTypes = {
+  onChange: PropTypes.func
+};
 export default CurrencySelect;

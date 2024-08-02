@@ -20,7 +20,7 @@ export const Circle = styled.div`
   width: 21px;
   height: 21px;
   position: absolute;
-  ${props => (props.switched ? 'right' : 'left')}: 0;
+  ${props => (props.$switched ? 'right' : 'left')}: 0;
 
   @media (min-width: 768px) {
     width: 21px;

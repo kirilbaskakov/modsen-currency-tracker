@@ -20,7 +20,7 @@ export const SearchContainer = styled.div`
 `;
 
 export const VariantsContainer = styled.div`
-  display: ${props => (props.isVisible ? 'block' : 'none')};
+  display: ${props => (props.$isVisible ? 'block' : 'none')};
   border-radius: 5px;
   position: absolute;
   top: 100%;

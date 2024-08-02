@@ -13,6 +13,7 @@ import DataTable from '../DataTable/DataTable';
 import Observable from '@/context/Observable';
 import addDays from '../../utils/addDays/index';
 import getDataFromStorage from '../../utils/getDataFromStorage';
+import { PropTypes } from 'prop-types';
 
 class SelectDataModal extends Component {
   constructor() {
@@ -85,4 +86,9 @@ class SelectDataModal extends Component {
   }
 }
 
+SelectDataModal.props = {
+  onClose: PropTypes.func,
+  open: PropTypes.bool,
+  currency: PropTypes.string
+};
 export default SelectDataModal;

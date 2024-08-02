@@ -15,15 +15,15 @@ export const LinksTitle = styled.h4`
 
 export const Arrow = styled.img`
   vertical-align: middle;
-  transform: rotate(${props => (props.rotated ? '-90deg' : '0')});
+  transform: rotate(${props => (props.$rotated ? '-90deg' : '0')});
   transition: all 0.3s;
   @media (min-width: 768px) {
     display: none;
   }
 `;
 export const Links = styled.div`
-  max-height: ${props => (props.isOpen ? '50px' : '0px')};
-  border: ${props => (props.isOpen ? 'none' : '1px solid #607D94')};
+  max-height: ${props => (props.$isOpen ? '50px' : '0px')};
+  border: ${props => (props.$rotatedisOpen ? 'none' : '1px solid #607D94')};
   overflow: hidden;
   display: flex;
   flex-direction: column;

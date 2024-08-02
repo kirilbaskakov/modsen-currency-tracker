@@ -5,6 +5,9 @@ import { withTheme } from 'styled-components';
 import Observable from '@/context/Observable';
 import { Canvas } from './styled';
 import getDataFromStorage from '@/utils/getDataFromStorage';
+import { Chart, registerables } from 'chart.js';
+
+Chart.register(...registerables);
 
 class CurrencyChart extends Component {
   constructor() {

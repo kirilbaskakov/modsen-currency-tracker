@@ -18,9 +18,9 @@ const LinksGroup = ({ title, links }) => {
     <LinksGroupStyled>
       <TitleContainer onClick={onClick}>
         <LinksTitle>{title}</LinksTitle>
-        <Arrow src={DropdownArrow} rotated={!isOpen} />
+        <Arrow src={DropdownArrow} $rotated={!isOpen} alt={'Dropdown arror'} />
       </TitleContainer>
-      <Links isOpen={isOpen}>
+      <Links $isOpen={isOpen}>
         {links.map(link => (
           <GroupLink key={link}>{link}</GroupLink>
         ))}

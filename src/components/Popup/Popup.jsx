@@ -39,8 +39,8 @@ class Popup extends Component {
   render() {
     return createPortal(
       <PopupStyled
-        isVisible={this.state.isVisible}
-        isSuccess={this.state.isSuccess}
+        $isVisible={this.state.isVisible}
+        $isSuccess={this.state.isSuccess}
       >
         {this.state.isSuccess
           ? 'The chart has been successfully built!'

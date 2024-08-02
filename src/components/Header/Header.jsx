@@ -14,7 +14,6 @@ const Header = () => {
   return (
     <HeaderStyled>
       <LogoStyled src={Logo} alt="Logo" />
-      <BurgerMenu />
       <Nav>
         <LinkStyled to="/">Home</LinkStyled>
         <LinkStyled to="/timeline">Timeline</LinkStyled>
@@ -24,6 +23,7 @@ const Header = () => {
       <ThemeButtonContainer>
         <ThemeButton />
       </ThemeButtonContainer>
+      <BurgerMenu />
     </HeaderStyled>
   );
 };

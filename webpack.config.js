@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = env => ({
   mode: env.mode,
@@ -31,8 +32,8 @@ module.exports = env => ({
       template: path.resolve(__dirname, 'public', 'index.html')
     })
   ],
-  devServer: {
-    port: 3001,
+  devServer: env.mode === 'development' && {
+    port: env.port ?? 3000,
     open: true,
     historyApiFallback: true,
     hot: true
@@ -42,5 +43,9 @@ module.exports = env => ({
     alias: {
       '@': path.resolve(__dirname, 'src')
     }
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()]
   }
 });

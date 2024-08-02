@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 import { CardContainer, Icon, Subtitle, Text, Title } from './styled';
 import ExchangeModal from '../ExchangeModal/ExchangeModal';
 
@@ -19,9 +19,9 @@ const Card = ({
   return (
     <>
       <CardContainer
-        outlined={outlined}
+        $outlined={outlined}
         onClick={onClick}
-        isHoverable={exchangable}
+        $isHoverable={exchangable}
       >
         <Icon src={icon} alt={title} />
         <Text>
@@ -37,10 +37,11 @@ const Card = ({
 };
 
 Card.propTypes = {
-  icon: PropTypes.string,
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  outlined: PropTypes.bool
+  icon: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  outlined: PropTypes.bool,
+  exchangable: PropTypes.bool
 };
 
 export default Card;

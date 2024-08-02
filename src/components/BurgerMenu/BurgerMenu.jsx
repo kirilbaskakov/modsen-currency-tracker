@@ -25,7 +25,7 @@ const BurgerMenu = () => {
         <Line />
       </Burger>
       {isOpen && <Overlay onClick={switchIsOpen} />}
-      <Dropdown isOpen={isOpen}>
+      <Dropdown $isOpen={isOpen}>
         <DropdownItem to="/" onClick={switchIsOpen}>
           Home
         </DropdownItem>
@@ -38,7 +38,7 @@ const BurgerMenu = () => {
         <DropdownItem to="/contacts" onClick={switchIsOpen}>
           Contact us
         </DropdownItem>
-        <DropdownItem highlighted>
+        <DropdownItem>
           <ThemeButton />
         </DropdownItem>
       </Dropdown>

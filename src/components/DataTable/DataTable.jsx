@@ -12,6 +12,7 @@ import {
 } from './styled';
 import addDays from '@/utils/addDays';
 import genChartData from '@/utils/genChartData';
+import PropTypes from 'prop-types';
 
 class DataTable extends Component {
   constructor() {
@@ -32,7 +33,7 @@ class DataTable extends Component {
   }
 
   onAmountChange(e) {
-    const amount = e.target.value;
+    const amount = Math.min(30, Math.max(1, e.target.value));
     if (amount < this.props.data.length) {
       this.props.setData(this.props.data.slice(0, amount));
     } else {
@@ -121,7 +122,7 @@ class DataTable extends Component {
           <ConfirmButton onClick={this.randomize}>Randomize</ConfirmButton>
           <CancelButton onClick={this.clear}>Clear</CancelButton>
         </GridButtons>
-        <Error isVisible={isError}>
+        <Error $isVisible={isError}>
           Low value must be lesser than open and close and high value must be
           greater
         </Error>
@@ -157,4 +158,16 @@ class DataTable extends Component {
   }
 }
 
+DataTable.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      x: PropTypes.instanceOf(Date),
+      o: PropTypes.number,
+      h: PropTypes.number,
+      l: PropTypes.number,
+      c: PropTypes.number
+    })
+  ).isRequired,
+  setData: PropTypes.func.isRequired
+};
 export default DataTable;

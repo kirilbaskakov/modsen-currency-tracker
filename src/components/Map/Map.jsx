@@ -1,10 +1,10 @@
-import { Component } from 'react';
+import { PureComponent } from 'react';
 import mapboxgl from 'mapbox-gl';
 import { Container } from './styled';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mockBanks from '@/utils/mockBanks';
 
-class Map extends Component {
+class Map extends PureComponent {
   constructor() {
     super();
     this.markers = [];
@@ -32,6 +32,7 @@ class Map extends Component {
   }
 
   fetchBanks(longitude, latitude) {
+    console.log(longitude, latitude);
     fetch(
       `https://api.mapbox.com/search/searchbox/v1/category/bank?access_token=pk.eyJ1Ijoia2lyaWxsYmFza2Frb3YxMiIsImEiOiJjbHl6djk3bjgybjI3Mm1xbDcwdGlqdzQ4In0.hNzpxUmwjuOiYyVVxBWN9w&limit=25&proximity=${longitude}%2C${latitude}`
     )
@@ -51,8 +52,7 @@ class Map extends Component {
     this.geolocate = new mapboxgl.GeolocateControl(
       {
         positionOptions: {
-          enableHighAccuracy: true,
-          timeout: 8000
+          enableHighAccuracy: true
         },
         trackUserLocation: true,
         showUserHeading: true
@@ -75,15 +75,15 @@ class Map extends Component {
         return navigator.geolocation.getCurrentPosition(
           position => {
             this.configureMap([
-              position.coords.latitude,
-              position.coords.longitude
+              position.coords.longitude,
+              position.coords.latitude
             ]);
           },
           () => {},
           {
             enableHighAccuracy: true,
             maximumAge: 0,
-            timeout: 27000
+            timeout: 4000
           }
         );
       }

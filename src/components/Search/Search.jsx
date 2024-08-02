@@ -10,6 +10,7 @@ import {
 } from './styled';
 import SearchIcon from '@/assets/search-normal.svg';
 import getRelevant from '@/utils/getRelevant';
+import PropTypes from 'prop-types';
 
 class Search extends Component {
   constructor() {
@@ -59,7 +60,7 @@ class Search extends Component {
             isError={isError}
           />
           <Icon src={SearchIcon} alt="search" />
-          <VariantsContainer isVisible={this.state.isFocused}>
+          <VariantsContainer $isVisible={this.state.isFocused}>
             {this.state.variants.map(variant => (
               <Variant key={variant} onClick={this.onClick(variant)}>
                 {variant}
@@ -73,4 +74,8 @@ class Search extends Component {
   }
 }
 
+Search.propTypes = {
+  values: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onVariantChange: PropTypes.func
+};
 export default Search;

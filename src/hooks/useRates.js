@@ -13,7 +13,7 @@ const useRates = baseCode => {
     if (cachedResponse) {
       const expiresValue = cachedResponse.headers.get('expires');
       const dateValue = cachedResponse.headers.get('date');
-      const maxAge = 300000;
+      const maxAge = 3600000;
       const exp =
         expiresValue && expiresValue !== '-1'
           ? Date.parse(expiresValue)

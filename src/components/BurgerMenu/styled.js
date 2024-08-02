@@ -30,9 +30,9 @@ export const Dropdown = styled.div`
   overflow: hidden;
   background-color: ${props => props.theme.colors.cardBg};
   z-index: 2;
-  transform: scaleY(${props => (props.isOpen ? 1 : 0)}) translateY(5%);
+  transform: scaleY(${props => (props.$isOpen ? 1 : 0)}) translateY(5%);
   transform-origin: top;
-  opacity: ${props => (props.isOpen ? 1 : 0)};
+  opacity: ${props => (props.$isOpen ? 1 : 0)};
   transition: all 0.26s ease;
 `;
 

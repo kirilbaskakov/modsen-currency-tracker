@@ -1,19 +1,19 @@
 import styled from 'styled-components';
 
 export const CardContainer = styled.div`
-  ${props => (props.isHoverable ? 'cursor: pointer;' : '')}
+  ${props => (props.$isHoverable ? 'cursor: pointer;' : '')}
   background-color: ${props =>
-    props.outlined ? props.theme.colors.cardBg : 'transparent'};
+    props.$outlined ? props.theme.colors.cardBg : 'transparent'};
   border-radius: 5px;
   border: ${props =>
-    props.outlined ? `1px solid ${props.theme.colors.darkGray}` : 'none'};
-  padding: ${props => (props.outlined ? '2rem' : '2rem 0')};
+    props.$outlined ? `1px solid ${props.theme.colors.darkGray}` : 'none'};
+  padding: ${props => (props.$outlined ? '2rem' : '2rem 0')};
   display: flex;
   gap: 1.5rem;
 
   &:hover {
     ${props =>
-      props.isHoverable
+      props.$isHoverable
         ? `background-color: ${props.theme.colors.cardHoverBg}; `
         : ''};
   }

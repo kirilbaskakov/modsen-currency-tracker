@@ -7,7 +7,7 @@ const ThemeButton = () => {
 
   return (
     <Button onClick={toggleTheme} data-testid="theme-button">
-      <Circle switched={themeType === 'light'} />
+      <Circle $switched={themeType === 'light'} />
     </Button>
   );
 };

@@ -30,7 +30,7 @@ export const GridButtons = styled.div`
 export const Error = styled.div`
   color: ${props => props.theme.colors.red};
   font-size: ${props => props.theme.fs.small};
-  opacity: ${props => (props.isVisible ? 1 : 0)};
+  opacity: ${props => (props.$isVisible ? 1 : 0)};
 `;
 
 export const Grid = styled.div`

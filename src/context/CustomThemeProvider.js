@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { darkTheme, lightTheme } from '../theme';
+import { darkTheme, lightTheme } from '@/constants/theme';
 import { ThemeProvider } from 'styled-components';
 
 const CustomThemeProvider = ({ children }) => {
@@ -13,6 +13,7 @@ const CustomThemeProvider = ({ children }) => {
 
   return (
     <ThemeProvider theme={{ ...theme, toggleTheme, themeType }}>
+      <div data-testid={themeType} />
       {children}
     </ThemeProvider>
   );

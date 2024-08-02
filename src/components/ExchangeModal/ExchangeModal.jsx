@@ -14,6 +14,7 @@ import {
 import CurrencySelect from '../CurrencySelect/CurrencySelect';
 import { currencies } from '@/constants/currenciesData';
 import useRates from '@/hooks/useRates';
+import PropTypes from 'prop-types';
 
 const ExchangeModal = ({ currency, open, onClose }) => {
   const { rates, isLoading } = useRates(currencies[currency].code);
@@ -41,14 +42,19 @@ const ExchangeModal = ({ currency, open, onClose }) => {
           </Highlighted>
         </Description>
         <InputContainer>
-          <Input value={value} onChange={onValueChange} type="number" />
+          <Input
+            value={value}
+            onChange={onValueChange}
+            type="number"
+            data-testid="exchange-input"
+          />
           <Separator />
           <ReadonlySelect onChange={onCurrencyChange}>
             {currency}
           </ReadonlySelect>
         </InputContainer>
         <InputContainer>
-          <Input value={value * rate} readOnly />
+          <Input value={value * rate} readOnly data-testid="exchange-result" />
           <Separator />
           <CurrencySelect onChange={onCurrencyChange} />
         </InputContainer>
@@ -56,6 +62,12 @@ const ExchangeModal = ({ currency, open, onClose }) => {
       </Container>
     </Modal>
   );
+};
+
+ExchangeModal.propTypes = {
+  currency: PropTypes.string.isRequired,
+  open: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired
 };
 
 export default ExchangeModal;

@@ -9,12 +9,12 @@ export const PopupStyled = styled.div`
   transform: translateX(-50%);
   padding: 0.5rem 1rem;
   background-color: ${props =>
-    props.isSuccess ? props.theme.colors.green : props.theme.colors.red};
+    props.$isSuccess ? props.theme.colors.green : props.theme.colors.red};
   border-radius: 5px;
   font-size: ${props => props.theme.fs.small};
   color: ${props => props.theme.colors.primary};
   font-weight: 600;
   transition: opacity 0.3s ease-in-out;
 
-  opacity: ${props => (props.isVisible ? 1 : 0)};
+  opacity: ${props => (props.$isVisible ? 1 : 0)};
 `;
