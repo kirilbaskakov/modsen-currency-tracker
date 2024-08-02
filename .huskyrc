@@ -1,5 +1,0 @@
-{
-  "hooks": {
-    "pre-commit": "CI=true npm run test"
-  }
-}

@@ -1,5 +1,5 @@
 {
-    "extends": ["airbnb", "airbnb/hooks", "plugin:prettier/recommended"],
+    "extends": ["airbnb", "airbnb/hooks", "react-app", "plugin:prettier/recommended"],
     "plugins": ["react", "prettier", "simple-import-sort"],
     "rules": {
       "prettier/prettier": "error",
