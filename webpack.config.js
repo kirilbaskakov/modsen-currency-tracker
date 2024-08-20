@@ -30,7 +30,8 @@ module.exports = env => ({
   },
   plugins: [
     new DotenvWebpackPlugin({
-      path: './.env'
+      path: './.env',
+      systemvars: true
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public', 'index.html')
