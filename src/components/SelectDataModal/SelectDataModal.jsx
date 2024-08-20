@@ -2,10 +2,10 @@ import { PropTypes } from 'prop-types';
 import { Component } from 'react';
 
 import observable from '@/context/observable';
+import addDays from '@/utils/addDays/index';
+import getDataFromStorage from '@/utils/getDataFromStorage';
 import toDateInput from '@/utils/toDateInput';
 
-import addDays from '../../utils/addDays/index';
-import getDataFromStorage from '../../utils/getDataFromStorage';
 import DataTable from '../DataTable/DataTable';
 import Modal from '../Modal/Modal';
 import {

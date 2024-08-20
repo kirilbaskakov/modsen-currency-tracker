@@ -4,9 +4,9 @@ import mapboxgl from 'mapbox-gl';
 import { PureComponent } from 'react';
 
 import fetchBanks from '@/api/fetchBanks';
+import createGeoControl from '@/utils/createGeoControl/createGeoControl';
+import getPosition from '@/utils/getPosition';
 
-import createGeoControl from '../../utils/createGeoControl/createGeoControl';
-import getPosition from '../../utils/getPosition';
 import { Container } from './styled';
 
 class Map extends PureComponent {
