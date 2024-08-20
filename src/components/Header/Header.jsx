@@ -1,5 +1,9 @@
 import React from 'react';
+
 import Logo from '@/assets/logo-small.svg';
+import routes from '@/constants/routes';
+
+import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import ThemeButton from '../ThemeButton/ThemeButton';
 import {
   HeaderStyled,
@@ -8,17 +12,15 @@ import {
   Nav,
   ThemeButtonContainer
 } from './styled';
-import BurgerMenu from '../BurgerMenu/BurgerMenu';
 
-const Header = () => {
+function Header() {
   return (
     <HeaderStyled>
       <LogoStyled src={Logo} alt="Logo" />
       <Nav>
-        <LinkStyled to="/">Home</LinkStyled>
-        <LinkStyled to="/timeline">Timeline</LinkStyled>
-        <LinkStyled to="/banks">Bank map</LinkStyled>
-        <LinkStyled to="/contacts">Contact us</LinkStyled>
+        {routes.map(({ path, name }) => (
+          <LinkStyled to={path}>{name}</LinkStyled>
+        ))}
       </Nav>
       <ThemeButtonContainer>
         <ThemeButton />
@@ -26,6 +28,6 @@ const Header = () => {
       <BurgerMenu />
     </HeaderStyled>
   );
-};
+}
 
 export default Header;

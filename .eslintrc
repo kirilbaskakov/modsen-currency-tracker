@@ -1,6 +1,15 @@
 {
     "extends": ["airbnb", "airbnb/hooks", "react-app", "plugin:prettier/recommended"],
     "plugins": ["react", "prettier", "simple-import-sort"],
+    "settings": {
+      "import/resolver": 
+        {
+          "alias": {
+            "map": [["@", "./src"]],
+            "extensions": [".js", ".jsx"]
+          }
+        }
+    },
     "rules": {
       "prettier/prettier": "error",
       "no-unused-vars": "warn",
@@ -9,6 +18,21 @@
       "no-process-exit": "off",
       "object-shorthand": "off",
       "class-methods-use-this": "off",
+      "react/react-in-jsx-scope": "off",
+      "import/prefer-default-export": "off",
+      "no-param-reassign": "off",
+      "react/require-default-props": "off",
+      "react/prop-types": "off",
+      "react/destructuring-assignment": "off",
+      "import/extensions": [
+        "error",
+        "ignorePackages",
+        {
+          "": "never",
+          "js": "never",
+          "jsx": "never"
+        }
+      ],
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error"

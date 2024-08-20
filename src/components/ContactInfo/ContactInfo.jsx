@@ -1,7 +1,8 @@
 import React from 'react';
-import { Description, Text, Bold } from './styled';
 
-const ContactInfo = () => {
+import { Bold, Description, Text } from './styled';
+
+function ContactInfo() {
   return (
     <>
       <Description>
@@ -18,6 +19,6 @@ const ContactInfo = () => {
       </Text>
     </>
   );
-};
+}
 
 export default ContactInfo;

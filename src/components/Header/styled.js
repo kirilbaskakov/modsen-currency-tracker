@@ -1,25 +1,33 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
+const HEADER_Z = 1;
+const HEADER_PADDING = '1.5rem 0';
+
+const LOGO_SIZE_S = '30px';
+const LOGO_SIZE_L = '40px';
+
+const NAV_GAP = '4rem';
+
 export const HeaderStyled = styled.header`
-  z-index: 1;
+  z-index: ${HEADER_Z};
   position: sticky;
   top: 0;
   width: 100%;
   background-color: ${props => props.theme.colors.mainBg};
-  padding: 1.5rem 0;
+  padding: ${HEADER_PADDING};
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
 export const LogoStyled = styled.img`
-  width: 30px;
-  height: 30px;
+  width: ${LOGO_SIZE_S};
+  height: ${LOGO_SIZE_S};
 
   @media (min-width: 768px) {
-    width: 40px;
-    height: 40px;
+    width: ${LOGO_SIZE_L};
+    height: ${LOGO_SIZE_L};
   }
 `;
 
@@ -28,7 +36,7 @@ export const Nav = styled.nav`
   @media (min-width: 768px) {
     display: flex;
     justify-content: space-between;
-    gap: 4rem;
+    gap: ${NAV_GAP};
   }
 `;
 

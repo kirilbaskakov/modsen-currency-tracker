@@ -1,12 +1,14 @@
+import { PropTypes } from 'prop-types';
 import { useState } from 'react';
-import { darkTheme, lightTheme } from '@/constants/theme';
 import { ThemeProvider } from 'styled-components';
 
-const CustomThemeProvider = ({ children }) => {
+import { darkTheme, lightTheme } from '@/constants/theme';
+
+export function CustomThemeProvider({ children }) {
   const [themeType, setThemeType] = useState('dark');
 
   const toggleTheme = () => {
-    setThemeType(themeType => (themeType === 'dark' ? 'light' : 'dark'));
+    setThemeType(theme => (theme === 'dark' ? 'light' : 'dark'));
   };
 
   const theme = themeType === 'dark' ? darkTheme : lightTheme;
@@ -17,6 +19,8 @@ const CustomThemeProvider = ({ children }) => {
       {children}
     </ThemeProvider>
   );
-};
+}
 
-export default CustomThemeProvider;
+CustomThemeProvider.propTypes = {
+  children: PropTypes.node
+};

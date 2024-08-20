@@ -1,11 +1,10 @@
 export const candlestick = theme => ({
   id: 'candlestick',
-  beforeDatasetDraw(chart, args, pluginOptions) {
+  beforeDatasetDraw(chart) {
     const {
       ctx,
       data,
-      chartArea: { top, bottom, left, right, width, height },
-      scales: { x, y }
+      scales: { y }
     } = chart;
     ctx.save();
     ctx.lineWidth = 1.5;
@@ -41,11 +40,11 @@ let crosshair;
 export const crosshairLabel = theme => ({
   id: 'crosshairLabel',
 
-  afterDatasetsDraw(chart, args, plugins) {
+  afterDatasetsDraw(chart) {
     const {
       ctx,
-      chartArea: { left, right, top, bottom },
-      scales: { x, y }
+      chartArea: { right },
+      scales: { y }
     } = chart;
 
     if (crosshair) {
@@ -77,11 +76,9 @@ export const crosshairLabel = theme => ({
 
   afterEvent(chart, args) {
     const {
-      ctx,
-      chartArea: { left, right, top, bottom }
+      chartArea: { left, right }
     } = chart;
 
-    const xCord = args.event.x;
     const yCord = args.event.y;
 
     if (!args.inChartArea && crosshair) {

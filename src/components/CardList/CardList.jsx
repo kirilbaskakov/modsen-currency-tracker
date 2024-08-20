@@ -1,19 +1,20 @@
+import PropTypes from 'prop-types';
 import React from 'react';
+
 import Card from '../Card/Card';
 import { CardsContainer, Separator, StyledList, Title } from './styled';
-import PropTypes from 'prop-types';
 
-const CardList = ({ title, cards }) => {
+function CardList({ title, cards }) {
   return (
     <StyledList>
       <Title>{title}</Title>
       <Separator />
       <CardsContainer>
-        {cards.map(({ icon, title, subtitle, exchangable }) => (
+        {cards.map(({ icon, title: cardTitle, subtitle, exchangable }) => (
           <Card
-            key={title}
+            key={cardTitle}
             icon={icon}
-            title={title}
+            title={cardTitle}
             subtitle={subtitle}
             exchangable={exchangable}
           />
@@ -21,7 +22,7 @@ const CardList = ({ title, cards }) => {
       </CardsContainer>
     </StyledList>
   );
-};
+}
 
 CardList.propTypes = {
   title: PropTypes.string,

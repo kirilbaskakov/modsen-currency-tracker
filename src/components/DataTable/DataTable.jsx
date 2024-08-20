@@ -1,4 +1,9 @@
+import PropTypes from 'prop-types';
 import { Component, Fragment } from 'react';
+
+import addDays from '@/utils/addDays';
+import genChartData from '@/utils/genChartData';
+
 import {
   AmountInput,
   CancelButton,
@@ -10,9 +15,6 @@ import {
   Label,
   NumberInput
 } from './styled';
-import addDays from '@/utils/addDays';
-import genChartData from '@/utils/genChartData';
-import PropTypes from 'prop-types';
 
 class DataTable extends Component {
   constructor() {
@@ -23,13 +25,6 @@ class DataTable extends Component {
     this.clear = this.clear.bind(this);
     this.onAmountChange = this.onAmountChange.bind(this);
     this.randomize = this.randomize.bind(this);
-  }
-
-  validate(items) {
-    return items.every(
-      item =>
-        item.l <= Math.min(item.o, item.c) && item.h >= Math.max(item.o, item.c)
-    );
   }
 
   onAmountChange(e) {
@@ -49,6 +44,13 @@ class DataTable extends Component {
     }
   }
 
+  validate(items) {
+    return items.every(
+      item =>
+        item.l <= Math.min(item.o, item.c) && item.h >= Math.max(item.o, item.c)
+    );
+  }
+
   createItem(lastDate) {
     return {
       x: addDays(lastDate, 1),
@@ -65,7 +67,7 @@ class DataTable extends Component {
 
   deleteItem(id) {
     return () => {
-      if (this.props.data.length == 1) {
+      if (this.props.data.length === 1) {
         return;
       }
       const startDate = this.props.data[0].x;
@@ -132,7 +134,7 @@ class DataTable extends Component {
           <Label>Low</Label>
           <Label>High</Label>
           <Label>Date</Label>
-          <div></div>
+          <div />
           {this.props.data.map(({ x, o, h, l, c }) => (
             <Fragment key={x.toLocaleDateString()}>
               <NumberInput value={o} onChange={this.changeItem(x, 'o')} />

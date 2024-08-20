@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+
+import DropdownArrow from '@/assets/dropdown-arrow.svg';
+
 import {
   Arrow,
   GroupLink,
@@ -8,9 +11,8 @@ import {
   LinksTitle,
   TitleContainer
 } from './styled';
-import DropdownArrow from '@/assets/dropdown-arrow.svg';
 
-const LinksGroup = ({ title, links }) => {
+function LinksGroup({ title, links }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const onClick = () => setIsOpen(isOpen => !isOpen);
@@ -18,7 +20,7 @@ const LinksGroup = ({ title, links }) => {
     <LinksGroupStyled>
       <TitleContainer onClick={onClick}>
         <LinksTitle>{title}</LinksTitle>
-        <Arrow src={DropdownArrow} $rotated={!isOpen} alt={'Dropdown arror'} />
+        <Arrow src={DropdownArrow} $rotated={!isOpen} alt="Dropdown arror" />
       </TitleContainer>
       <Links $isOpen={isOpen}>
         {links.map(link => (
@@ -27,7 +29,7 @@ const LinksGroup = ({ title, links }) => {
       </Links>
     </LinksGroupStyled>
   );
-};
+}
 
 LinksGroup.propTypes = {
   title: PropTypes.string.isRequired,

@@ -20,8 +20,8 @@ const useRates = baseCode => {
           : Date.parse(dateValue ?? '') + maxAge;
 
       if (Date.now() < exp) {
-        const data = await cachedResponse.json();
-        setData(data);
+        const newData = await cachedResponse.json();
+        setData(newData);
         return;
       }
 
@@ -48,8 +48,8 @@ const useRates = baseCode => {
         })
       );
 
-      const data = await cloned.json();
-      setData(data);
+      const newData = await cloned.json();
+      setData(newData);
     });
   };
 

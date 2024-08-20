@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
-import { Option, Select } from './styled';
-import { currencies } from '@/constants/currenciesData';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+
+import { currencies } from '@/constants/currenciesData';
+
+import { Option, Select } from './styled';
 
 class CurrencySelect extends Component {
   constructor() {

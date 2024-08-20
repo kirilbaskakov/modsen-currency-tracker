@@ -1,29 +1,27 @@
 import styled from 'styled-components';
 
+const BUTTON_RADIUS = '15px';
+const BUTTON_BORDER_WIDTH = '2px';
+const BUTTON_HEIGHT = '24px';
+const BUTTON_WIDTH = '40px';
+
+const CIRCLE_BORDER_WIDTH = '2px';
+const CIRCLE_SIZE = '21px';
+
 export const Button = styled.div`
   cursor: pointer;
-  border-radius: 15px;
-  border: 2px solid ${props => props.theme.colors.primary};
-  height: 24px;
-  width: 40px;
+  border-radius: ${BUTTON_RADIUS};
+  border: ${BUTTON_BORDER_WIDTH} solid ${props => props.theme.colors.primary};
+  height: ${BUTTON_HEIGHT};
+  width: ${BUTTON_WIDTH};
   position: relative;
-
-  @media (min-width: 768px) {
-    height: 24px;
-    width: 40px;
-  }
 `;
 
 export const Circle = styled.div`
-  border: 2px solid ${props => props.theme.colors.primary};
+  border: ${CIRCLE_BORDER_WIDTH} solid ${props => props.theme.colors.primary};
   border-radius: 50%;
-  width: 21px;
-  height: 21px;
+  width: ${CIRCLE_SIZE};
+  height: ${CIRCLE_SIZE};
   position: absolute;
   ${props => (props.$switched ? 'right' : 'left')}: 0;
-
-  @media (min-width: 768px) {
-    width: 21px;
-    height: 21px;
-  }
 `;

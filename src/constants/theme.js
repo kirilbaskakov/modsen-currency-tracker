@@ -30,6 +30,13 @@ export const darkTheme = {
     large: '2rem',
     medium: '1.5rem',
     small: '1.25rem'
+  },
+
+  fw: {
+    light: 400,
+    normal: 500,
+    semibold: 600,
+    bold: 700
   }
 };
 

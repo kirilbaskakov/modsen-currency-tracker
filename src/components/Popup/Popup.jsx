@@ -1,13 +1,23 @@
 import { Component } from 'react';
-import { PopupStyled } from './styled';
 import { createPortal } from 'react-dom';
-import Observable from '@/context/Observable';
+
+import observable from '@/context/observable';
+
+import { PopupStyled } from './styled';
 
 class Popup extends Component {
   constructor() {
     super();
     this.state = { isVisible: false, isSuccess: false };
     this.onDataChange = this.onDataChange.bind(this);
+  }
+
+  componentDidMount() {
+    observable.subscribe(this.onDataChange);
+  }
+
+  componentWillUnmount() {
+    observable.unsubscribe(this.onDataChange);
   }
 
   onDataChange({ data, isDefault }) {
@@ -26,14 +36,6 @@ class Popup extends Component {
       () => this.setState({ isVisible: false }),
       2000
     );
-  }
-
-  componentDidMount() {
-    Observable.subscribe(this.onDataChange);
-  }
-
-  componentWillUnmount() {
-    Observable.unsubscribe(this.onDataChange);
   }
 
   render() {

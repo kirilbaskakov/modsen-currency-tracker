@@ -1,6 +1,4 @@
-import { currencies } from '@/constants/currenciesData';
-
-const mockBanks = features => {
+const mockBanks = (features, currencies) => {
   const currenciesNames = Object.keys(currencies);
   const selectRandomCurrencies = () => {
     const amount = Math.ceil(Math.random() * 3 + 1);
@@ -10,7 +8,6 @@ const mockBanks = features => {
         currenciesNames[Math.floor(Math.random() * currenciesNames.length)]
       );
     }
-    console.log(result);
     return Array.from(result);
   };
 

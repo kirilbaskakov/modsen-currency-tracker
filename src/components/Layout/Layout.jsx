@@ -1,13 +1,14 @@
 import React, { Suspense } from 'react';
-import Header from '../Header/Header';
 import { Outlet } from 'react-router-dom';
+
 import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
 import Hero from '../Hero/Hero';
 import LastUpdated from '../LastUpdated/LastUpdated';
-import { Body, Container, Main } from './styled';
 import Loader from '../Loader/Loader';
+import { Body, Container, Main } from './styled';
 
-const Layout = () => {
+function Layout() {
   return (
     <Body>
       <Container>
@@ -23,6 +24,6 @@ const Layout = () => {
       </Container>
     </Body>
   );
-};
+}
 
 export default Layout;

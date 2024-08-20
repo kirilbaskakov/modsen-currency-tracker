@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+const MIN_HEIGHT = '350px';
+
 export const Canvas = styled.canvas`
-  min-height: 350px;
+  min-height: ${MIN_HEIGHT};
 `;
