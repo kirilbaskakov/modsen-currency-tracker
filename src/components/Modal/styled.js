@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-const OVERLAY_COLOR = 'rgba(0, 0, 0, 0.3)';
 const OVERLAY_Z = 99;
 
 const MODAL_PADDING = '1rem 2rem';
@@ -14,7 +13,7 @@ export const Overlay = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: ${OVERLAY_COLOR};
+  background-color: ${props => props.theme.colors.overlay};
   z-index: ${OVERLAY_Z};
 `;
 
