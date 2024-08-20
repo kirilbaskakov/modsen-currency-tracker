@@ -1,4 +1,10 @@
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+
+import { currencies } from '@/constants/currenciesData';
+import useRates from '@/hooks/useRates';
+
+import CurrencySelect from '../CurrencySelect/CurrencySelect';
 import Modal from '../Modal/Modal';
 import {
   Button,
@@ -11,12 +17,8 @@ import {
   Separator,
   Title
 } from './styled';
-import CurrencySelect from '../CurrencySelect/CurrencySelect';
-import { currencies } from '@/constants/currenciesData';
-import useRates from '@/hooks/useRates';
-import PropTypes from 'prop-types';
 
-const ExchangeModal = ({ currency, open, onClose }) => {
+function ExchangeModal({ currency, open, onClose }) {
   const { rates, isLoading } = useRates(currencies[currency].code);
   const [resultCurrency, setResultCurrency] = useState(
     Object.keys(currencies)[0]
@@ -62,7 +64,7 @@ const ExchangeModal = ({ currency, open, onClose }) => {
       </Container>
     </Modal>
   );
-};
+}
 
 ExchangeModal.propTypes = {
   currency: PropTypes.string.isRequired,

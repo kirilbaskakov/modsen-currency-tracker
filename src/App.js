@@ -1,29 +1,13 @@
-import {
-  Route,
-  RouterProvider,
-  createBrowserRouter,
-  createRoutesFromChildren
-} from 'react-router-dom';
-import Layout from '@/components/Layout/Layout';
-import routes from '@/constants/routes';
-import CustomThemeProvider from '@/context/CustomThemeProvider';
+import { CustomThemeProvider } from '@/context/theme';
 
-const router = createBrowserRouter(
-  createRoutesFromChildren(
-    <Route path="/" element={<Layout />}>
-      {routes.map(route => (
-        <Route key={route.path} path={route.path} element={<route.element />} />
-      ))}
-    </Route>
-  )
-);
+import RouteProvider from './components/RouteProvider';
 
-const App = () => {
+function App() {
   return (
     <CustomThemeProvider>
-      <RouterProvider router={router}></RouterProvider>
+      <RouteProvider />
     </CustomThemeProvider>
   );
-};
+}
 
 export default App;

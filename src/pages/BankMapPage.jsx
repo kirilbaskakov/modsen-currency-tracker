@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import Map from '@/components/Map/Map';
 import Search from '@/components/Search/Search';
 import { currencies } from '@/constants/currenciesData';
@@ -6,7 +7,7 @@ import { currencies } from '@/constants/currenciesData';
 class BankMapPage extends Component {
   constructor() {
     super();
-    this.state = { currency: '' };
+    this.state = { currency: 'Commercial Dollar' };
     this.onVariantChange = this.onVariantChange.bind(this);
   }
 
@@ -19,6 +20,7 @@ class BankMapPage extends Component {
       <>
         <Search
           values={Object.keys(currencies)}
+          defaultValue={this.state.currency}
           onVariantChange={this.onVariantChange}
         />
         <Map currency={this.state.currency} />

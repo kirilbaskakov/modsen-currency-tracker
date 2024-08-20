@@ -23,7 +23,7 @@ test('properties x, o, h, l, c are in data', () => {
 
 test('date increasing', () => {
   const currDate = new Date(startDate);
-  for (let { x } of data) {
+  for (const { x } of data) {
     expect(x.toLocaleDateString('en-us')).toBe(
       currDate.toLocaleDateString('en-us')
     );

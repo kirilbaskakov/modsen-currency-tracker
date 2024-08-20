@@ -1,5 +1,7 @@
 import React from 'react';
+
 import Logo from '@/assets/logo-small.svg';
+
 import LinksGroup from '../LinksGroup/LinksGroup';
 import {
   Description,
@@ -11,7 +13,7 @@ import {
   Title
 } from './styled';
 
-const Footer = () => {
+function Footer() {
   const links = [
     { title: 'General', links: ['Market', 'Service'] },
     { title: 'Product', links: ['Sparks', 'Snaps'] },
@@ -38,6 +40,6 @@ const Footer = () => {
       <Rights>Startsup © 2023-2024, All Rights Reserved</Rights>
     </FooterStyled>
   );
-};
+}
 
 export default Footer;

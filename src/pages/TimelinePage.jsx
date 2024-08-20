@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import CurrencySelect from '@/components/CurrencySelect/CurrencySelect';
+
 import Card from '@/components/Card/Card';
 import CurrencyChart from '@/components/CurrencyChart/CurrencyChart';
+import CurrencySelect from '@/components/CurrencySelect/CurrencySelect';
+import Popup from '@/components/Popup/Popup';
 import SelectData from '@/components/SelectData/SelectData';
 import { currencies } from '@/constants/currenciesData';
-import Popup from '@/components/Popup/Popup';
 
 class TimelinePage extends Component {
   constructor() {

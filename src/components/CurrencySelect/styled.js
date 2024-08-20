@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
+const PADDING = '1rem';
+
 export const Select = styled.select`
   cursor: pointer;
   color: ${props => props.theme.colors.primary};
   font-size: ${props => props.theme.fs.large};
-  font-weight: 500;
+  font-weight: ${props => props.theme.fw.normal};
   background-color: transparent;
   border: none;
-  padding: 1rem 0;
-  padding-right: 1rem;
+  padding: ${PADDING} 0;
+  padding-right: ${PADDING};
 
   &:focus {
     outline: none;

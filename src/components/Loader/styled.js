@@ -1,5 +1,12 @@
 import styled, { keyframes } from 'styled-components';
 
+const LOADER_TOP = '5%';
+const LOADER_LEFT = 'calc(50% - 25px)';
+const LOADER_SIZE = '50px';
+const LOADER_BORDER_WIDTH = '8px';
+const ANIMATION_DURATION1 = '0.8s';
+const ANIMATION_DURATION2 = '1.6s';
+
 const loader1 = keyframes`
      0%    {clip-path: polygon(50% 50%,0       0,  50%   0%,  50%    0%, 50%    0%, 50%    0%, 50%    0% )}
      12.5% {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100%   0%, 100%   0%, 100%   0% )}
@@ -18,13 +25,13 @@ const loader2 = keyframes`
 
 export const LoaderStyled = styled.div`
   position: absolute;
-  top: 5%;
-  left: calc(50% - 25px);
-  width: 50px;
-  aspect-ratio: 1;
+  top: ${LOADER_TOP};
+  left: ${LOADER_LEFT};
+  width: ${LOADER_SIZE};
+  height: ${LOADER_SIZE};
   border-radius: 50%;
-  border: 8px solid ${props => props.theme.colors.green};
+  border: ${LOADER_BORDER_WIDTH} solid ${props => props.theme.colors.green};
   animation:
-    ${loader1} 0.8s infinite linear alternate,
-    ${loader2} 1.6s infinite linear;
+    ${loader1} ${ANIMATION_DURATION1} infinite linear alternate,
+    ${loader2} ${ANIMATION_DURATION2} infinite linear;
 `;

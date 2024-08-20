@@ -1,8 +1,10 @@
 import React from 'react';
+
 import Logo from '@/assets/logo-large.svg';
+
 import { Description, HeroStyled, LogoStyled, Text, Title } from './styled';
 
-const Hero = () => {
+function Hero() {
   return (
     <HeroStyled>
       <Text>
@@ -19,6 +21,6 @@ const Hero = () => {
       <LogoStyled src={Logo} />
     </HeroStyled>
   );
-};
+}
 
 export default Hero;

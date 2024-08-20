@@ -1,15 +1,10 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { CardContainer, Icon, Subtitle, Text, Title } from './styled';
-import ExchangeModal from '../ExchangeModal/ExchangeModal';
+import React, { useState } from 'react';
 
-const Card = ({
-  icon,
-  title,
-  subtitle,
-  exchangable = false,
-  outlined = true
-}) => {
+import ExchangeModal from '../ExchangeModal/ExchangeModal';
+import { CardContainer, Icon, Subtitle, Text, Title } from './styled';
+
+function Card({ icon, title, subtitle, exchangable = false, outlined = true }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const onClick = () => exchangable && setIsOpen(true);
@@ -34,7 +29,7 @@ const Card = ({
       )}
     </>
   );
-};
+}
 
 Card.propTypes = {
   icon: PropTypes.string.isRequired,

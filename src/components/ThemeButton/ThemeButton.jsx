@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTheme } from 'styled-components';
+
 import { Button, Circle } from './styled';
 
-const ThemeButton = () => {
+function ThemeButton() {
   const { toggleTheme, themeType } = useTheme();
 
   return (
@@ -10,6 +11,6 @@ const ThemeButton = () => {
       <Circle $switched={themeType === 'light'} />
     </Button>
   );
-};
+}
 
 export default ThemeButton;

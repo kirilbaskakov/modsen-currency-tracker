@@ -1,13 +1,10 @@
-import { Component } from 'react';
-import { Overlay, ModalStyled } from './styled';
 import PropTypes from 'prop-types';
+import { Component } from 'react';
 import { createPortal } from 'react-dom';
 
-class Modal extends Component {
-  constructor() {
-    super();
-  }
+import { ModalStyled, Overlay } from './styled';
 
+class Modal extends Component {
   render() {
     if (!this.props.open) {
       return null;

@@ -8,6 +8,9 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html, body {
+    scrollbar-gutter: stable;
+  } 
   body {
     font-family: Lexend Deca, sans-serif;
     position: relative;

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tooltip body match snapshot 1`] = `
+"Open: 5
+Closed: 10
+High: 15
+Low: 3"
+`;
+
+exports[`tooltip title match snapshot 1`] = `"Invalid Date"`;

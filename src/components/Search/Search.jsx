@@ -1,4 +1,9 @@
+import PropTypes from 'prop-types';
 import { Component } from 'react';
+
+import SearchIcon from '@/assets/search-normal.svg';
+import getRelevant from '@/utils/getRelevant';
+
 import {
   Error,
   Icon,
@@ -8,14 +13,11 @@ import {
   Variant,
   VariantsContainer
 } from './styled';
-import SearchIcon from '@/assets/search-normal.svg';
-import getRelevant from '@/utils/getRelevant';
-import PropTypes from 'prop-types';
 
 class Search extends Component {
-  constructor() {
+  constructor(props) {
     super();
-    this.state = { variants: [], search: '', isFocused: false };
+    this.state = { variants: [], search: props.defaultValue, isFocused: false };
     this.onChange = this.onChange.bind(this);
     this.onClick = this.onClick.bind(this);
     this.onFocus = this.onFocus.bind(this);

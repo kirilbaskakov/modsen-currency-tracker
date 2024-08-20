@@ -1,11 +1,13 @@
+import { Chart, registerables } from 'chart.js';
 import { Component } from 'react';
+import { withTheme } from 'styled-components';
+
+import observable from '@/context/observable';
 import { candlestick, crosshairLabel } from '@/utils/chartPlugins';
 import chartTooltip from '@/utils/chartTooltip';
-import { withTheme } from 'styled-components';
-import Observable from '@/context/Observable';
-import { Canvas } from './styled';
 import getDataFromStorage from '@/utils/getDataFromStorage';
-import { Chart, registerables } from 'chart.js';
+
+import { Canvas } from './styled';
 
 Chart.register(...registerables);
 
@@ -17,6 +19,34 @@ class CurrencyChart extends Component {
     this.onDataChanged = this.onDataChanged.bind(this);
   }
 
+  componentDidMount() {
+    this.getData();
+    observable.subscribe(this.onDataChanged);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.currency !== this.props.currency) {
+      this.getData();
+    }
+    if (!Object.is(this.state.data, prevState.data)) {
+      this.clearChart();
+      this.buildChart();
+    }
+  }
+
+  componentWillUnmount() {
+    this.clearChart();
+    observable.unsubscribe(this.onDataChanged);
+  }
+
+  onDataChanged({ data }) {
+    if (data.length === 30) {
+      this.setState({ data });
+    } else {
+      this.setState({ data: [] });
+    }
+  }
+
   getData() {
     const data = getDataFromStorage(this.props.currency, {
       x: new Date(),
@@ -26,8 +56,14 @@ class CurrencyChart extends Component {
       h: 0
     });
     this.setState({
-      data: data.length == 30 ? data : []
+      data: data.length === 30 ? data : []
     });
+  }
+
+  clearChart() {
+    if (this.chart) {
+      this.chart.destroy();
+    }
   }
 
   buildChart() {
@@ -135,40 +171,6 @@ class CurrencyChart extends Component {
     const ctx = document.getElementById('currencyChart');
 
     this.chart = new Chart(ctx, config);
-  }
-
-  clearChart() {
-    if (this.chart) {
-      this.chart.destroy();
-    }
-  }
-
-  onDataChanged({ data }) {
-    if (data.length === 30) {
-      this.setState({ data });
-    } else {
-      this.setState({ data: [] });
-    }
-  }
-
-  componentDidMount() {
-    this.getData();
-    Observable.subscribe(this.onDataChanged);
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.currency != this.props.currency) {
-      this.getData();
-    }
-    if (!Object.is(this.state.data, prevState.data)) {
-      this.clearChart();
-      this.buildChart();
-    }
-  }
-
-  componentWillUnmount() {
-    this.clearChart();
-    Observable.unsubscribe(this.onDataChanged);
   }
 
   render() {

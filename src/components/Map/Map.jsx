@@ -1,24 +1,45 @@
-import { PureComponent } from 'react';
-import mapboxgl from 'mapbox-gl';
-import { Container } from './styled';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import mockBanks from '@/utils/mockBanks';
+
+import mapboxgl from 'mapbox-gl';
+import { PureComponent } from 'react';
+
+import fetchBanks from '@/api/fetchBanks';
+
+import createGeoControl from '../../utils/createGeoControl/createGeoControl';
+import getPosition from '../../utils/getPosition';
+import { Container } from './styled';
 
 class Map extends PureComponent {
   constructor() {
     super();
+    mapboxgl.accessToken = process.env.API_TOKEN;
     this.markers = [];
     this.banks = [];
     this.map = null;
     this.configureMap = this.configureMap.bind(this);
-    this.buildMap = this.buildMap.bind(this);
-    this.fetchBanks = this.fetchBanks.bind(this);
     this.addMarkers = this.addMarkers.bind(this);
+  }
+
+  componentDidMount() {
+    this.configureMap();
+  }
+
+  componentDidUpdate() {
+    this.addMarkers(
+      this.banks.filter(bank => bank.currencies.includes(this.props.currency))
+    );
+  }
+
+  componentWillUnmount() {
+    if (this.map) {
+      this.map.remove();
+      this.map = null;
+    }
   }
 
   addMarkers(features) {
     this.markers.forEach(marker => marker.remove());
-    features.map(feature => {
+    features.forEach(feature => {
       const popup = new mapboxgl.Popup({ offset: 25 }).setText(
         feature.properties.name
       );
@@ -31,85 +52,34 @@ class Map extends PureComponent {
     });
   }
 
-  fetchBanks(longitude, latitude) {
-    console.log(longitude, latitude);
-    fetch(
-      `https://api.mapbox.com/search/searchbox/v1/category/bank?access_token=pk.eyJ1Ijoia2lyaWxsYmFza2Frb3YxMiIsImEiOiJjbHl6djk3bjgybjI3Mm1xbDcwdGlqdzQ4In0.hNzpxUmwjuOiYyVVxBWN9w&limit=25&proximity=${longitude}%2C${latitude}`
-    )
-      .then(res => res.json())
-      .then(({ features }) => (this.banks = mockBanks(features)));
-  }
-
-  configureMap(coords) {
-    mapboxgl.accessToken =
-      'pk.eyJ1Ijoia2lyaWxsYmFza2Frb3YxMiIsImEiOiJjbHl6djk3bjgybjI3Mm1xbDcwdGlqdzQ4In0.hNzpxUmwjuOiYyVVxBWN9w';
-    this.map = new mapboxgl.Map({
-      container: 'map',
-      center: coords,
-      zoom: 7
-    });
-
-    this.geolocate = new mapboxgl.GeolocateControl(
-      {
-        positionOptions: {
-          enableHighAccuracy: true
-        },
-        trackUserLocation: true,
-        showUserHeading: true
-      },
-      'top-right'
-    );
-    this.map.addControl(this.geolocate);
-    this.map.on('load', () => {
-      this.geolocate.trigger();
-    });
-    this.geolocate.on('geolocate', ({ coords }) => {
-      this.fetchBanks(coords.longitude, coords.latitude);
-    });
-  }
-
-  buildMap() {
-    navigator.permissions.query({ name: 'geolocation' }).then(({ state }) => {
-      const coords = [-74.5, 40];
-      if (state !== 'denied') {
-        return navigator.geolocation.getCurrentPosition(
-          position => {
-            this.configureMap([
-              position.coords.longitude,
-              position.coords.latitude
-            ]);
-          },
-          () => {},
-          {
-            enableHighAccuracy: true,
-            maximumAge: 0,
-            timeout: 4000
-          }
+  configureGeoControl() {
+    this.geoControl = createGeoControl(({ coords }) => {
+      fetchBanks(coords.longitude, coords.latitude).then(banks => {
+        this.banks = banks;
+        this.addMarkers(
+          banks.filter(bank => bank.currencies.includes(this.props.currency))
         );
-      }
-      this.configureMap(coords);
+      });
+    });
+    this.map.addControl(this.geoControl);
+    this.map.on('load', () => {
+      this.geoControl.trigger();
     });
   }
 
-  componentDidMount() {
-    this.buildMap();
-  }
-
-  componentWillUnmount() {
-    if (this.map) {
-      this.map.remove();
-      this.map = null;
-    }
-  }
-
-  componentDidUpdate() {
-    this.addMarkers(
-      this.banks.filter(bank => bank.currencies.includes(this.props.currency))
-    );
+  configureMap() {
+    getPosition(сoords => {
+      this.map = new mapboxgl.Map({
+        container: 'map',
+        center: сoords,
+        zoom: 7
+      });
+      this.configureGeoControl();
+    });
   }
 
   render() {
-    return <Container id="map"></Container>;
+    return <Container id="map" />;
   }
 }
 

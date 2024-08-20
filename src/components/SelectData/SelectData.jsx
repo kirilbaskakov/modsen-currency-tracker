@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import { Component } from 'react';
+
 import SelectDataModal from '../SelectDataModal/SelectDataModal';
 import { Button } from './styled';
-import PropTypes from 'prop-types';
 
 class SelectData extends Component {
   constructor() {

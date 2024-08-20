@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
+
 import { LoaderStyled } from './styled';
 
-const Loader = () => {
+function Loader() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    let timerId = setTimeout(() => setIsVisible(true), 200);
+    const timerId = setTimeout(() => setIsVisible(true), 200);
     return () => clearTimeout(timerId);
   }, []);
 
@@ -14,6 +15,6 @@ const Loader = () => {
   }
 
   return <LoaderStyled />;
-};
+}
 
 export default Loader;

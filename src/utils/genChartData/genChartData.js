@@ -1,6 +1,6 @@
 const getChartData = (amount, startDate) => {
-  const data = new Array(amount).fill({}).reduce((data, _, index) => {
-    let date = new Date(startDate);
+  const items = new Array(amount).fill({}).reduce((data, _, index) => {
+    const date = new Date(startDate);
     date.setDate(startDate.getDate() + index);
 
     const offset = Math.random() * 100;
@@ -20,7 +20,7 @@ const getChartData = (amount, startDate) => {
       }
     ];
   }, []);
-  return data;
+  return items;
 };
 
 export default getChartData;
